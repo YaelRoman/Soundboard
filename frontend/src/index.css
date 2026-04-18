@@ -1,0 +1,102 @@
+/* ── Design Tokens ─────────────────────────────────────────────────────── */
+:root {
+  /* Backgrounds */
+  --bg-void:        #080810;
+  --bg-surface:     #0f0f1a;
+  --bg-glass:       rgba(255, 255, 255, 0.04);
+  --bg-glass-hover: rgba(255, 255, 255, 0.08);
+
+  /* Accents */
+  --accent-primary:   #00f5d4;
+  --accent-secondary: #7b2fff;
+  --accent-danger:    #ff3864;
+  --accent-warm:      #ff9f1c;
+
+  /* Waveform */
+  --wave-active:   #00f5d4;
+  --wave-inactive: rgba(0, 245, 212, 0.2);
+  --wave-played:   #7b2fff;
+
+  /* Typography */
+  --text-primary:   #e8eaf0;
+  --text-secondary: #8892a4;
+  --text-muted:     #3d4455;
+
+  /* Borders */
+  --border-subtle: rgba(255, 255, 255, 0.06);
+  --border-glow:   rgba(0, 245, 212, 0.3);
+
+  /* Shadows */
+  --shadow-glow-cyan:   0 0 20px rgba(0, 245, 212, 0.15);
+  --shadow-glow-purple: 0 0 20px rgba(123, 47, 255, 0.2);
+  --shadow-card:        0 8px 32px rgba(0, 0, 0, 0.5);
+
+  /* Transitions */
+  --transition-fast:   150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-base:   250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow:   400ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-bounce: 500ms cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* Layout */
+  --sidebar-collapsed: 64px;
+  --sidebar-expanded:  240px;
+}
+
+/* ── Reset ─────────────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; }
+
+body {
+  background: var(--bg-void);
+  color: var(--text-primary);
+  font-family: 'DM Sans', system-ui, sans-serif;
+  line-height: 1.5;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; text-decoration: none; }
+button { cursor: pointer; border: none; background: none; font: inherit; }
+input, textarea { font: inherit; }
+img { display: block; max-width: 100%; }
+
+/* ── Scrollbar ─────────────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-surface); }
+::-webkit-scrollbar-thumb { background: var(--border-subtle); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
+
+/* ── Typography helpers ────────────────────────────────────────────────── */
+.font-display  { font-family: 'Space Mono', monospace; }
+.font-mono     { font-family: 'JetBrains Mono', monospace; }
+.font-orbitron { font-family: 'Orbitron', sans-serif; }
+
+/* ── Utility ───────────────────────────────────────────────────────────── */
+.glass {
+  background: var(--bg-glass);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+}
+.glow-cyan   { box-shadow: var(--shadow-glow-cyan); }
+.glow-purple { box-shadow: var(--shadow-glow-purple); }
+
+/* ── Animations ────────────────────────────────────────────────────────── */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 8px rgba(0, 245, 212, 0.3); }
+  50%       { box-shadow: 0 0 20px rgba(0, 245, 212, 0.7); }
+}
+@keyframes bar-dance {
+  0%, 100% { transform: scaleY(0.3); }
+  50%       { transform: scaleY(1); }
+}
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position:  200% center; }
+}

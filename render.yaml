@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: soundboard-api
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: SECRET_KEY
+        generateValue: true
+      - key: DATABASE_URL
+        value: sqlite:///./soundboard.db
+      - key: UPLOAD_DIR
+        value: /app/uploads
+      - key: APP_ENV
+        value: production
+    disk:
+      name: uploads
+      mountPath: /app/uploads
+      sizeGB: 5
+    healthCheckPath: /health
