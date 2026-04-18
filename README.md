@@ -2,6 +2,8 @@
 
 A collaborative platform for managing, sharing, and discovering sound effects and audio files.
 
+![Dashboard](./images/Dashboard.png)
+
 ## Overview
 
 SoundBoard enables users to create and organize soundboards (collections of sounds), upload audio files, share boards publicly or privately, and discover sounds from other users with powerful tagging and search capabilities.
